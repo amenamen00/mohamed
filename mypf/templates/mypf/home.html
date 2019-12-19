@@ -1,0 +1,48 @@
+{% extends 'mypf/base.html' %}
+
+{% block content %}
+    
+	<div  id = "A" style = "margin-top:500px;color:white;font-size:30px;font-style:bold italic;" class="row justify-content-center margin">
+		Welcome To Mohamed Ashraf Project  ^_^
+    	</div>
+    <div id = "bo" style="display:none;">
+	{% include 'mypf/navbar.html' %}
+    <div class="container">
+        <div class="row justify-content-center margin">
+            <div class="col-7">
+                <!--Custom Api form-->
+                <form method="POST" class="form-inline">
+                    {% csrf_token %}
+                    <label class="my-1 mr-2" for="name">Name</label>
+                    <input type="text" name="name" class="form-control mb-2 mr-sm-2" id="name" placeholder="Mohamed Ashraf">
+
+                    <label class="my-1 mr-2" for="gender">Gender</label>
+                    <select name="gender" class="custom-select mb-2 mr-sm-2" id="gender">
+                        <option selected>Select</option>
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
+                    </select>
+                    <button type="button" class="btn btn-primary mb-2 btn-sub" style = "background-color:#FFA500"	>Generate Your</button>
+                </form>
+            </div>
+        </div><div class="row justify-content-center margin">
+            <div class="col-8">
+                <img class="img-fluid" name="srcapi" id="srcapi" src="https://belikebill.ga/billgen-API.php?default=1&name=Mohamed Ashraf&sex=m">
+
+            </div>
+        </div>
+        <div class="row justify-content-center margin">
+            <div class="pflink" style = "background-color:#FFA500">
+                <a href="{% url 'portfolio' %}">Check Portfolio</a>
+            </div>
+        </div>
+        
+    </div>
+    {% include 'mypf/footer.html' %}
+</div>
+<script>
+	var bo = document.getElementById("bo");
+	setTimeout(function(){document.getElementById("bo").style.display="inline";  }, 3000);
+	setTimeout(function(){document.getElementById("A").style.display="none";  }, 3000);
+    </script>
+{% endblock %}
